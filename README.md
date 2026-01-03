@@ -35,12 +35,12 @@ The process can be broken down into five distinct steps within the main infinite
 
 A torus is essentially a circle rotated around an axis. The code uses two loop variables, `i` and `j`, to sweep across the surface of the torus.
 
-* **`i` ():** Goes from 0 to . This draws the cross-sectional circle of the donut.
-* **`j` ():** Goes from 0 to . This rotates that circle around the central axis of the donut.
+* **`i` ($\phi$):** Goes from 0 to 2PI . This draws the cross-sectional circle of the donut.
+* **`j` ($\theta$):** Goes from 0 to 2PI. This rotates that circle around the central axis of the donut.
 
 ### 2. The Rotation (Spinning)
 
-To make the donut spin, the code applies a 3D rotation matrix to every point  on the torus surface.
+To make the donut spin, the code applies a 3D rotation matrix to every point (x, y, z) on the torus surface.
 
 * **`A`**: The angle of rotation around the X-axis.
 * **`B`**: The angle of rotation around the Z-axis.
@@ -88,7 +88,7 @@ The code is "obfuscated," meaning it is intentionally written to be hard to read
 | `A`, `B` | The global rotation angles (animation state). |
 | `i`, `j` | Loop iterators for the torus angles ( and ). |
 | `c`, `d`, `e`, `f`, `g` | Pre-calculated sines and cosines. e.g., `c=sin(i)`, `d=cos(j)`. This optimises performance. |
-| `D` | . Used for perspective projection (things get smaller as they get farther). |
+| `D` | (1 / distance) Used for perspective projection (things get smaller as they get farther). |
 | `x`, `y` | The final 2D coordinates on your terminal screen. |
 | `o` | The offset/index in the screen buffer (calculating `y * width + x`). |
 | `N` | Luminance index (0 to 11). Determines which ASCII character to use. |
