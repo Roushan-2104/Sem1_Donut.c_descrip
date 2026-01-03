@@ -85,27 +85,17 @@ The code is "obfuscated," meaning it is intentionally written to be hard to read
 
 | Variable | Meaning |
 | --- | --- |
-| **`A`, `B**` | The global rotation angles (animation state). |
-| **`i`, `j**` | Loop iterators for the torus angles ( and ). |
-| **`c`, `d`, `e`, `f`, `g`...** | Pre-calculated sines and cosines. e.g., `c=sin(i)`, `d=cos(j)`. This optimizes performance. |
-| **`D`** | . Used for perspective projection (things get smaller as they get farther). |
-| **`x`, `y**` | The final 2D coordinates on your terminal screen. |
-| **`o`** | The offset/index in the screen buffer (calculating `y * width + x`). |
-| **`N`** | Luminance index (0 to 11). Determines which ASCII character to use. |
-| **`z[]`** | The Z-buffer (stores the depth of every pixel). |
-| **`b[]`** | The frame buffer (stores the characters to be printed). |
+| `A`, `B` | The global rotation angles (animation state). |
+| `i`, `j` | Loop iterators for the torus angles ( and ). |
+| `c`, `d`, `e`, `f`, `g` | Pre-calculated sines and cosines. e.g., `c=sin(i)`, `d=cos(j)`. This optimises performance. |
+| `D` | . Used for perspective projection (things get smaller as they get farther). |
+| `x`, `y` | The final 2D coordinates on your terminal screen. |
+| `o` | The offset/index in the screen buffer (calculating `y * width + x`). |
+| `N` | Luminance index (0 to 11). Determines which ASCII character to use. |
+| `z[]` | The Z-buffer (stores the depth of every pixel). |
+| `b[]` | The frame buffer (stores the characters to be printed). |
 
 ---
-
-## 📐 The Math in a Nutshell
-
-If you were to write this in standard mathematical notation, the projection formula used in the code looks roughly like this:
-
-Where:
-
-*  is the point after rotation.
-*  is the field of view constant.
-*  is the distance from the camera to the donut.
 
 The code combines the rotation matrices and projection into one condensed block of algebra to save space:
 
